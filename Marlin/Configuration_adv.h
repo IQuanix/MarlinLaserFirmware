@@ -3667,18 +3667,23 @@
  * See https://marlinfw.org/docs/configuration/2.0.9/laser_spindle.html for more config details.
  */
 //#define SPINDLE_FEATURE
+// making sure it really is enabled
 #define LASER_FEATURE
 #define SPINDLE_LASER_USE_PWM
-#define SPINDLE_LASER_FREQUENCY 1000 // most diod-lasers want 1kHz-5kHz
+#undef  SPEED_POWER_INTERCEPT
+#undef  SPEED_POWER_MIN
+#undef  SPEED_POWER_MAX
+#define SPEED_POWER_INTERCEPT 0
+#define SPEED_POWER_MIN       0
+#define SPEED_POWER_MAX       100
 
-// commented out for control
-//#if ANY(SPINDLE_FEATURE, LASER_FEATURE)
+#if ANY(SPINDLE_FEATURE, LASER_FEATURE)
   #define SPINDLE_LASER_ACTIVE_STATE    LOW    // Set to "HIGH" if SPINDLE_LASER_ENA_PIN is active HIGH
 
   #define SPINDLE_LASER_USE_PWM                // Enable if your controller supports setting the speed/power
   #if ENABLED(SPINDLE_LASER_USE_PWM)
     #define SPINDLE_LASER_PWM_INVERT    false  // Set to "true" if the speed/power goes up when you want it to go slower
-    #define SPINDLE_LASER_FREQUENCY     2500   // (Hz) Spindle/laser frequency (only on supported HALs: AVR, ESP32, and LPC)
+    #define SPINDLE_LASER_FREQUENCY     1000   // (Hz) Spindle/laser frequency (only on supported HALs: AVR, ESP32, and LPC)
                                                // ESP32: If SPINDLE_LASER_PWM_PIN is onboard then <=78125Hz. For I2S expander
                                                //  the frequency determines the PWM resolution. 2500Hz = 0-100, 977Hz = 0-255, ...
                                                //  (250000 / SPINDLE_LASER_FREQUENCY) = max value.

@@ -160,9 +160,7 @@
 #ifndef HEATER_BED_PIN
   #define HEATER_BED_PIN                    PA2   // HOT BED
 #endif
-#ifndef FAN0_PIN
-  #define FAN0_PIN                          PB0   // FAN
-#endif
+
 #define FAN_SOFT_PWM_REQUIRED
 
 //
@@ -336,3 +334,28 @@
 #define UART4_RX_PIN                        PC11  // default uses sdcard SDIO_D3
 #define UART5_TX_PIN                        PC12  // default uses sdcard SDIO_CK
 #define UART5_RX_PIN                        PD2   // default uses sdcard SDIO_CMD
+
+
+//
+// --- Laser on BL_T “IN” pin ---
+// PB0 is the BLTouch servo signal (3.3 V logic, hardware PWM).
+// Make it the laser PWM pin.
+//
+#ifdef SPINDLE_LASER_PWM_PIN
+  #undef SPINDLE_LASER_PWM_PIN
+#endif
+#define SPINDLE_LASER_PWM_PIN PB0   // <- Laser PWM out on BL_T "IN"
+
+#ifdef SPINDLE_LASER_ENA_PIN
+  #undef SPINDLE_LASER_ENA_PIN
+#endif
+#define SPINDLE_LASER_ENA_PIN -1    // No separate enable
+
+#ifdef SPINDLE_DIR_PIN
+  #undef SPINDLE_DIR_PIN
+#endif
+#define SPINDLE_DIR_PIN -1          // Not used for lasers
+
+#ifndef SPINDLE_LASER_ACTIVE_STATE
+  #define SPINDLE_LASER_ACTIVE_STATE HIGH
+#endif
