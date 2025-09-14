@@ -3683,7 +3683,7 @@
   #define SPINDLE_LASER_USE_PWM                // Enable if your controller supports setting the speed/power
   #if ENABLED(SPINDLE_LASER_USE_PWM)
     #define SPINDLE_LASER_PWM_INVERT    false  // Set to "true" if the speed/power goes up when you want it to go slower
-    #define SPINDLE_LASER_FREQUENCY     1000   // (Hz) Spindle/laser frequency (only on supported HALs: AVR, ESP32, and LPC)
+    #define SPINDLE_LASER_FREQUENCY     5000   // (Hz) Spindle/laser frequency (only on supported HALs: AVR, ESP32, and LPC)
                                                // ESP32: If SPINDLE_LASER_PWM_PIN is onboard then <=78125Hz. For I2S expander
                                                //  the frequency determines the PWM resolution. 2500Hz = 0-100, 977Hz = 0-255, ...
                                                //  (250000 / SPINDLE_LASER_FREQUENCY) = max value.
@@ -3776,7 +3776,7 @@
     * value. Too low and it could turn off during a very slow move; too high and
     * the material could ignite.
     */
-    #define LASER_SAFETY_TIMEOUT_MS     60000   // (ms) 60s 
+    //#define LASER_SAFETY_TIMEOUT_MS     60000   // (ms) 60s 
 
     /**
      * Any M3 or G1/2/3/5 command with the 'I' parameter enables continuous inline power mode.
@@ -3801,7 +3801,7 @@
      * CUTTER_MODE_CONTINUOUS. The option allows M3 laser power to be committed without waiting
      * for a planner synchronization
      */
-    //#define LASER_POWER_SYNC
+    #define LASER_POWER_SYNC
 
     /**
      * Scale the laser's power in proportion to the movement rate.
@@ -3810,7 +3810,7 @@
      * - Ramps the power up every N steps to approximate the speed trapezoid.
      * - Due to the limited power resolution this is only approximate.
      */
-    //#define LASER_POWER_TRAP
+    #define LASER_POWER_TRAP
 
     //
     // Laser I2C Ammeter (High precision INA226 low/high side module)
@@ -4442,7 +4442,7 @@
  * NanoDLP Sync support
  *
  * Support for Synchronized Z moves when used with NanoDLP. G0/G1 axis moves will
- * output a "Z_move_comp" string to enable synchronization with DLP projector exposure.
+ * output a "Z_comp" string to enable synchronization with DLP projector exposure.
  * This feature allows you to use [[WaitForDoneMessage]] instead of M400 commands.
  * @section nanodlp
  */
