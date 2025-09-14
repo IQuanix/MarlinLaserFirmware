@@ -28,11 +28,14 @@ Now you need to connect a 12V power supply to the lasers 12V and **connect both 
 Note: _Currently I'm using a external power supply, but I might search for a 12V 2A pin on the printers psu or use a buck-converter in the future_.
 
 ## How to modify the firmware for your printer
-In case you don't have an ender 5 (pro) with a V422 borad like me, but still got a similar mainboard you can try and modify the firmware yourself.\
+In case you don't have an ender 5 (pro) with a V422 board like me, but still got a similar mainboard you can try and modify the firmware yourself.\
 After watching a few tutorials on how to configure a firmware everything should be straight forward.\
-You just have to copy your printers config into the marlin folder like usually and modify the parameters of the newest version I published.
-You can find ready to use firmware files in each branch.
--this will come soon-
+You just have to copy your printers config into the marlin folder like usually and modify the given parameters of the newest version I published.\
+-this parameter-set will come soon-\
+You can find ready to use firmware files in each branch (_.bin_).\
+Once you have the compiled firmware you need to put them on a sd card. (best to use one bin file nothing else)\
+Then insert the sd card into the printer and power it on. Let it update and wait till you see the normal info screen. The firmware is now flashed :D.
+
 
 ## Warning
 This is my first time playing this much with a printers firmware. If the firmware works on my printer it will prob. work on yours, but always be carefull when using the laser and **ALWAYS** wear saftey-glasses.\
