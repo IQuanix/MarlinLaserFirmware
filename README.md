@@ -1,2 +1,3 @@
 # MarlinLaserFirmware
-This is a repo to add the functionality of adding a laser-module to a 3d printer like an ender 5 pro.
+This Version is ready to use with a Ender 5 Pro or Ender 5 with a silent board upgrade.
+Board Firmware should be V422
