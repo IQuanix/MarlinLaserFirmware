@@ -31,10 +31,11 @@ Note: _Currently I'm using a external power supply, but I might search for a 12V
 In case you don't have an ender 5 (pro) with a V422 board like me, but still got a similar mainboard you can try and modify the firmware yourself.\
 After watching a few tutorials on how to configure a firmware everything should be straight forward.\
 You just have to copy your printers config into the marlin folder like usually and modify the given parameters of the newest version I published.\
--this parameter-set will come soon-\
-You can find ready to use firmware files in each branch (_.bin_).\
-Once you have the compiled firmware you need to put them on a sd card. (best to use one bin file nothing else)\
-Then insert the sd card into the printer and power it on. Let it update and wait till you see the normal info screen. The firmware is now flashed :D.
+_this parameter-set is found in the V2 readme_
+You can find ready to use firmware files in each version (_.bin_).\
+Once you have the compiled firmware you need to put them on a sd-card. (best to use one bin file nothing else)\
+Then insert the sd card into the printer and power it on. Let it update and wait till you see the normal info screen.\
+The firmware is now flashed :D.
 
 
 ## Warning
